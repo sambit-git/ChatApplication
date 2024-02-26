@@ -1,0 +1,10 @@
+.conversations {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #eee #fff;
+  border-bottom: 3px solid #eee;
+  padding: 1rem;
+}

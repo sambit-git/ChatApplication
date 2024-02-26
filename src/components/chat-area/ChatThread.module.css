@@ -1,0 +1,27 @@
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-height: 4rem;
+  padding: 0.5rem;
+  border-bottom: 3px solid #eee;
+}
+
+.photo {
+  img {
+    height: 3rem;
+    width: 3rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border-bottom: 1px solid blueviolet;
+    box-shadow: 1px 1px 2px #ccc, -1px -1px 2px #ccc;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.body {
+  .name {
+    font-size: larger;
+  }
+}

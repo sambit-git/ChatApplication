@@ -1,0 +1,13 @@
+.left-panel {
+  background-color: #fff;
+}
+.contacts-list {
+  max-height: 85vh;
+  overflow-y: scroll;
+  width: 30vw;
+  /* Scroll Style */
+  /* Possible values: auto | thin | none */
+  scrollbar-width: thin;
+  /* scrollbar-color: <thumb-color> <track-color>; */
+  scrollbar-color: #eee #fff;
+}

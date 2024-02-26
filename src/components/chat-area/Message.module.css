@@ -1,0 +1,66 @@
+.message-item {
+  display: flex;
+  gap: 1rem;
+  max-width: 60%;
+  margin: 0.5rem;
+  border-radius: 5px;
+  position: relative;
+}
+
+.photo {
+  img {
+    height: 3rem;
+    width: 3rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border-bottom: 1px solid blueviolet;
+    box-shadow: 1px 1px 2px #ccc, -1px -1px 2px #ccc;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.msg {
+  padding: 0.5rem;
+  display: flex;
+  gap: 1rem;
+  .timestamp {
+    text-align: right;
+    font-size: smaller;
+    color: #777;
+    align-self: flex-end;
+    white-space: nowrap;
+  }
+}
+.right {
+  align-self: flex-end;
+  background-color: #c9d3ff;
+  &::after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 0.5rem solid #c9d3ff;
+    border-right: 0.5rem solid transparent;
+    border-top: 0.5rem solid #c9d3ff;
+    border-bottom: 0.5rem solid transparent;
+    right: -0.5rem;
+    top: 0;
+  }
+}
+.left {
+  align-self: flex-start;
+  background-color: #e4e4e4;
+  &::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 0.5rem solid transparent;
+    border-right: 0.5rem solid #e4e4e4;
+    border-top: 0.5rem solid #e4e4e4;
+    border-bottom: 0.5rem solid transparent;
+    left: -0.5rem;
+    top: 0;
+  }
+}
