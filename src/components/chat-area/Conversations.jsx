@@ -4,11 +4,11 @@ import { useEffect } from "react";
 import { loadMessages } from "../../services/message.services";
 import { useSelector } from "react-redux";
 
-const Conversations = ({ chat }) => {
+const Conversations = ({ chatId }) => {
   const messages = useSelector((state) => state.message.messages);
   useEffect(() => {
-    loadMessages(chat._id);
-  }, [chat]);
+    loadMessages(chatId);
+  }, [chatId]);
 
   return (
     <div className={cls.conversations}>

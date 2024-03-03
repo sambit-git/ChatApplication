@@ -11,8 +11,8 @@ const ChatPanel = () => {
       {chat ? (
         <>
           <ChatThread chat={chat} />
-          <Conversations chat={chat} />
-          <MessageInput />
+          <Conversations chatId={chat._id} />
+          <MessageInput chatId={chat._id} />
         </>
       ) : (
         <div>Loading</div>
