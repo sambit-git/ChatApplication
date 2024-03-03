@@ -6,8 +6,11 @@ const messageSlice = createSlice({
     messages: [],
   },
   reducers: {
-    updateMessages: (state, action) => {
-      state.messages = action.payload;
+    fetchMessages: (state, action) => {
+      state.messages = [...action.payload];
+    },
+    sendMessage: (state, action) => {
+      state.messages.push(action.payload);
     },
   },
 });
