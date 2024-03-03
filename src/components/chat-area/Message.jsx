@@ -1,19 +1,22 @@
+import { formatTime, photoUrl } from "../../utilities/general.utility";
 import cls from "./Message.module.css";
-import { DATA } from "../../../data";
-// {sender, photo, type, msg}
+import { useSelector } from "react-redux";
 
-const Message = ({ name, photo, msg, time }) => {
+const Message = ({ sender, content, updatedAt }) => {
+  const userId = useSelector((state) => state.user.userId);
+
   let msgAlignClass;
-  if (name === DATA.self.name) msgAlignClass = "right";
+  if (userId === sender._id) msgAlignClass = "right";
   else msgAlignClass = "left";
+
   return (
     <div className={`${cls["message-item"]} ${cls[msgAlignClass]}`}>
       {/* <div className={cls.photo}>
-        <img src={photo} alt={name} />
+        <img src={photoUrl(sender.photo)} alt={sender.fullName} />
       </div> */}
       <div className={cls.msg}>
-        <p>{msg}</p>
-        <p className={cls.timestamp}>{time}</p>
+        <p>{content}</p>
+        <p className={cls.timestamp}>{formatTime(updatedAt, true)}</p>
       </div>
     </div>
   );

@@ -1,15 +1,22 @@
+import { useSelector } from "react-redux";
 import cls from "./ChatsPanel.module.css";
-import { DATA } from "../../../data";
 import ChatThread from "./ChatThread";
 import Conversations from "./Conversations";
 import MessageInput from "./MessageInput";
+
 const ChatPanel = () => {
-  const chatThread = DATA.users[2];
+  const chat = useSelector((state) => state.chat.selectedChat);
   return (
     <div className={cls["chat-panel"]}>
-      <ChatThread {...chatThread} />
-      <Conversations />
-      <MessageInput />
+      {chat ? (
+        <>
+          <ChatThread chat={chat} />
+          <Conversations chat={chat} />
+          <MessageInput />
+        </>
+      ) : (
+        <div>Loading</div>
+      )}
     </div>
   );
 };
