@@ -1,20 +1,17 @@
 import "./App.css";
 
-import { Provider } from "react-redux";
-import store from "./redux-store/store";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Chat from "./pages/Chat";
+import LoginPage, { action as loginAction } from "./pages/Login";
 
-import ContactsPanel from "./components/contacts/ContactsPanel";
-import ChatPanel from "./components/chat-area/ChatsPanel";
-import { login } from "./services/auth.services";
+const router = createBrowserRouter([
+  { path: "/", element: <Chat /> },
+  { path: "/login", element: <LoginPage />, action: loginAction },
+]);
 
 function App() {
-  login("sambit", "****");
-  return (
-    <Provider store={store}>
-      <ContactsPanel />
-      <ChatPanel />
-    </Provider>
-  );
+  // login("sambit", "pass");
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;

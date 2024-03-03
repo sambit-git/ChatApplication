@@ -10,9 +10,12 @@ export const loadMessages = async (chatId) => {
     // update redux-store
     store.dispatch(messageActions.fetchMessages(response.data));
 
-    return response;
+    return { success: true, data: response.data };
   } catch (error) {
-    return error?.response?.data?.message || "Bad Request";
+    return {
+      success: false,
+      message: error?.response?.data?.message || "Bad Request",
+    };
   }
 };
 
@@ -24,8 +27,11 @@ export const sendMessage = async (chatId, content) => {
     // update redux-store
     store.dispatch(messageActions.sendMessage(response.data));
 
-    return response.data;
+    return { success: true, data: response.data };
   } catch (error) {
-    return error?.response?.data?.message || "Bad Request";
+    return {
+      success: false,
+      message: error?.response?.data?.message || "Bad Request",
+    };
   }
 };

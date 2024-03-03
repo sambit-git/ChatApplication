@@ -10,8 +10,11 @@ export const loadChats = async () => {
     store.dispatch(chatActions.updateChats(response.data));
 
     // console.log(response.data);
-    return response.data;
+    return { success: true, data: response.data };
   } catch (error) {
-    return error?.response?.data?.message || "Bad Request";
+    return {
+      success: false,
+      message: error?.response?.data?.message || "Bad Request",
+    };
   }
 };

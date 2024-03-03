@@ -15,8 +15,11 @@ export const login = async (username, password) => {
     // update redux-store
     store.dispatch(userActions.update({ ...userData }));
 
-    return userData;
+    return { success: true, data: userData };
   } catch (error) {
-    return error?.response?.data?.message || "Bad Request";
+    return {
+      success: false,
+      message: error?.response?.data?.message || "Bad Request",
+    };
   }
 };
