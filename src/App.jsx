@@ -3,6 +3,7 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Chat from "./pages/Chat";
 import LoginPage, { action as loginAction } from "./pages/Login";
+import { getSelf } from "./services/auth.services";
 
 const router = createBrowserRouter([
   { path: "/", element: <Chat /> },
@@ -10,7 +11,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  // login("sambit", "pass");
+  getSelf();
   return <RouterProvider router={router}></RouterProvider>;
 }
 
