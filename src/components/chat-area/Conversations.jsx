@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 const Conversations = ({ chatId }) => {
   const messages = useSelector((state) => state.message.messages);
   const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     setIsLoading(true);
     loadMessages(chatId).then((res) => setIsLoading(false));
